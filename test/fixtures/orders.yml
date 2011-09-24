@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  isSell: false
+  title: MyString
+  description: MyText
+  price: 9.99
+  qty: 1
+  southwestLat: 9.99
+  northeastLng: 9.99
+
+two:
+  isSell: false
+  title: MyString
+  description: MyText
+  price: 9.99
+  qty: 1
+  southwestLat: 9.99
+  northeastLng: 9.99

@@ -1,0 +1,58 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :isSell %><br />
+    <%= f.check_box :isSell %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :qty %><br />
+    <%= f.number_field :qty %>
+  </div>
+  <div class="field">
+    <%= f.label :southwestLat %><br />
+    <%= f.text_field :southwestLat %>
+  </div>
+  <div class="field">
+    <%= f.label :northeastLng %><br />
+    <%= f.text_field :northeastLng %>
+  </div>
+  <div class="field">
+    Markets:<br />
+    <%= Bucket.count %> <br />
+    <% for bucket in Bucket.find(:all) %>
+      <div>
+        <%= check_box_tag "order[bucket_ids][]", bucket.id, @order.buckets.include?(bucket) %>
+        <%= bucket.orders.count %>
+        <% for order in bucket.orders %>
+          <%= order.title %> |
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

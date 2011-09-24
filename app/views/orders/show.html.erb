@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Issell:</b>
+  <%= @order.isSell %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @order.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @order.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @order.price %>
+</p>
+
+<p>
+  <b>Qty:</b>
+  <%= @order.qty %>
+</p>
+
+<p>
+  <b>Southwestlat:</b>
+  <%= @order.southwestLat %>
+</p>
+
+<p>
+  <b>Northeastlng:</b>
+  <%= @order.northeastLng %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @order.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
